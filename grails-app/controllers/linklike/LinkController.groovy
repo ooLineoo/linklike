@@ -12,4 +12,10 @@ class LinkController {
         link.save()
         redirect(action: "index")
     }
+
+    def like() {
+        def link = Link.findById(params.id)
+        link.numLike += 1
+        redirect(action: "index")
+    }
 }

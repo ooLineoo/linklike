@@ -13,7 +13,13 @@
     <li>No links</li>
   <% } else { %>
     <% for(link in links) { %>
-      <li><%= link.title %></li>
-    <% } %> 
+      <li>
+        <g:form name="linkLikeForm" url="[action: 'like']">
+        <a href = "http://<%= link.url%>"><%= link.title%></a> <%= link.numLike %> Like(s)
+        <g:hiddenField name="id" value="${link.id}"/>
+        <input type="submit" value="Like"/>
+        </g:form>
+      </li>
+    <% } %>
   <% } %>
 </ul>
